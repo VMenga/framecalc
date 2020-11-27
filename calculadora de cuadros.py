@@ -1,24 +1,23 @@
-Largo = input("Ancho del cuadro en centimetros:")
-Ancho = input("Alto del cuadro en centimetros")
+Largo = int(input("Ancho del cuadro en centimetros:"))
+Ancho = int(input("Alto del cuadro en centimetros:"))
 perfilA = 70
 perfilB = perfilA*1.10
 perfilC = 90
 perfilD = perfilC*1.10
+perfil = 0
 
 selecperfil = input("Seleccione perfil del cuadro\n Opciones 1, 2, 3, o 4:")
 perimetro = 2*Largo+2*Ancho
 
-def switch_perfil(selecperfil):
-    perfil = {
-    1: perfilA,
-    2: perfilB,
-    3: perfilC,
-    4: perfilD,
-    }
-    perfil = switch_perfil.get(selecperfil)
-    return perfil()
+if selecperfil == 1:
+    perfil = perfilA
+if selecperfil == 2:
+    perfil = perfilB
+if selecperfil == 3:
+    perfil = perfilC
+if selecperfil == 4:
+    perfil = perfilD
 
-costP = perimetro * perfil
 
 if Largo >= 70:
     costR1 = perfil
@@ -30,5 +29,7 @@ if Ancho >= 70:
 else:
     costR2 = 0
 
-TotalCost = CostP+CostR1+CostR2
-print("Costo del cuadro \n$", TotalCost)
+costP = perimetro + perfil
+
+TotalCost = costP + costR1 + costR2
+print("Costo del cuadro: \n$", TotalCost)
